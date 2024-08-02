@@ -22,8 +22,9 @@ def show(request):
 
 def delete(request, pk):
     obj = Movie_Review.objects.get(pk=pk)
-    if request.method == 'POST':
-        obj.delete()
+    
+    obj.delete()
+    return redirect("show")
    
     
 def update(request, pk):
