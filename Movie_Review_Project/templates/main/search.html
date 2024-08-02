@@ -1,0 +1,19 @@
+{% extends "main/base.html" %}
+
+ {%block title%}Add Review{% endblock %}
+
+ {%block main%}
+ <div class="container m-3 ">
+    <div class="col-sm-6 offset-3">
+        <form action="#" method="POST">
+            {% csrf_token %}        
+            <h3 class="text-center p-2">Search for an Movie</h3>
+            <lable for="name" >Name:</lable>
+            <input id="first_name" class="form-control" name="name"><br>
+            <hr>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+    </div>
+</div>
+</div>
+ {% endblock %}

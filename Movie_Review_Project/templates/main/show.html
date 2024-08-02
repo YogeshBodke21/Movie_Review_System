@@ -1,0 +1,42 @@
+{% extends "main/base.html" %}
+
+{%block title%}Reviews{% endblock %}
+{%  block main  %}
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Movie Title</th>
+        <th scope="col">Director</th>
+        <th scope="col">Content</th>
+        <th scope="col">Rating</th>
+        <th scope="col">Created At</th>
+        <th scope="col">Email ID</th>
+        <th scope="col">status</th>
+        <th scope="col">Genres</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for d in data %}
+      <tr>
+        <td>{{d.id}}</td>
+        
+        <td>{{d.MovieTitle}}</td>
+        <td>{{d.director}}</td>
+        <td>{{d.reviewContent}}</td>
+        <td>{{d.rating}}</td>
+        <td>{{d.created_at}}</td>
+        <td>{{d.reviewer_email_id}}</td>
+        <td>{{d.status}}</td>
+        <td>{{d.genres}}</td>
+        <form method="POST" action="#">
+            {% csrf_token %}
+        <td><a  class="btn btn-warning" type="submit" href="{% url "update" d.id%}">Update</a></td>
+        <td><a class="btn btn-danger" type="submit" href="{% url "delete" d.id%}">Delete</a></td>
+        </form>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
