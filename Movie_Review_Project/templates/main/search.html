@@ -1,18 +1,14 @@
 {% extends "main/base.html" %}
 
- {%block title%}Add Review{% endblock %}
+ {%block title%}Search Review{% endblock %}
 
  {%block main%}
- <div class="container m-3 ">
-    <div class="col-sm-6 offset-3">
-        <form action="#" method="POST">
-            {% csrf_token %}        
-            <h3 class="text-center p-2">Search for an Movie</h3>
-            <lable for="name" >Name:</lable>
-            <input id="first_name" class="form-control" name="name"><br>
-            <hr>
-            <button type="submit" class="btn btn-primary">Search</button>
-        </form>
+ <div class="container m-5 ">
+    <div class="col-sm-5 offset-5">
+        <form action="/search" class="form-inline my-2 my-lg-0" method="get">
+            <input class="form-control  mr-sm-2" name="query" id="query" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success  my-2 my-sm-0" type="submit">Search</button>
+          </form>
     </div>
 </div>
 </div>

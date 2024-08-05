@@ -38,11 +38,12 @@ def update(request, pk):
     return render (request, "main/index.html", locals())
 
 def search(request):
-    if request.method == "POST":
-        name = request.POST.get('name')
-        mov = Movie_Review.objects.all()
-        data = mov.filter(Q(first_name__icontains=name) )
-        context = {'data': data}
-        return render (request, "main/show.html", locals())
-
+    name = request.GET.get('query')
+    mov = Movie_Review.objects.all()
+    data = mov.filter(Q(MovieTitle__icontains=name))
+    context = {'data': data}
+    return render (request, "main/show.html", locals())
     
+
+def search1(request):
+    return render (request, "main/search.html", locals())
